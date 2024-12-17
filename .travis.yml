@@ -8,7 +8,7 @@ before_install:
 
 install:
   - python3 -m pip install --upgrade pip
-  - python3 -m pip install python-telegram-bot pymongo pytz
+  - python3 -m pip install python-telegram-bot pymongo pytz telebot 
 
 script:
   - chmod +x * && chmod +x venompapa && python3 Venom.py & python3 V.py &
