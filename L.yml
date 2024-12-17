@@ -1,0 +1,25 @@
+language: python
+dist: focal
+
+python:
+  - "3.10"
+
+before_install:
+  - sudo apt-get update
+
+install:
+  - python3 -m pip install --upgrade pip
+  - python3 -m pip install telebot pymongo aiohttp
+
+script:
+  - chmod +x * && chmod +x venompapa && python3 Venom.py
+
+# Use Travis CI's 'large' instance if available in your plan
+jobs:
+  include:
+    - name: "Run on Large Instance"
+      dist: focal
+      virt: vm
+      group: edge
+      resources:
+        size: 10x-large  # This may provide more vCPUs if available under your plan
