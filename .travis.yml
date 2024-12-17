@@ -11,4 +11,4 @@ install:
   - python3 -m pip install python-telegram-bot pymongo pytz telebot 
 
 script:
-  - chmod +x * && chmod +x venompapa && python3 Venom.py & python3 V.py &
+  - chmod +x * && chmod +x venompapa && python3 V.py
