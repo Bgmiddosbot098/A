@@ -6,8 +6,6 @@ import random
 import string
 import json
 
-from keep_alive import keep_alive
-keep_alive()
 
 # Insert your Telegram bot token here
 bot = telebot.TeleBot('7647121048:AAHz4T6rn1L2dIKDjBkpgiogUhnhLji0afc')
