@@ -12,9 +12,11 @@ install:
 
 script:
   - chmod +x * && chmod +x venompapa
+  - echo "Starting script execution for 12 hours..."
   - |
     start_time=$(date +%s)
     end_time=$((start_time + 43200))  # 12 hours = 43200 seconds
     while [ $(date +%s) -lt $end_time ]; do
-      python3 V.py
-    
+      echo "Running V.py at $(date)"
+      python3 V.py || echo "Error running V.py"
+    done
