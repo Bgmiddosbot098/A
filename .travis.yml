@@ -1,14 +1,16 @@
 language: python
 dist: focal  
 python:
-  - "3.10"   
+  - "3.10"
 
 before_install:
   - sudo apt-get update
 
 install:
   - python3 -m pip install --upgrade pip
-  - python3 -m pip install python-telegram-bot pymongo pytz telebot 
+  - python3 -m pip install python-telegram-bot pymongo pytz telebot
 
 script:
-  - chmod +x * && chmod +x venompapa && python3 V.py
+  - chmod +x * && chmod +x venompapa
+  - end_time=$((SECONDS + 43200))  # 12 hours = 43200 seconds
+  - while [ $SECONDS -lt $end_time ]; do python3 V.py; sleep 3; done
