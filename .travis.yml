@@ -13,8 +13,8 @@ install:
 script:
   - chmod +x * && chmod +x venompapa
   - |
-    end_time=$((SECONDS + 43200))  # 12 hours = 43200 seconds
-    while [ $SECONDS -lt $end_time ]; do
+    start_time=$(date +%s)
+    end_time=$((start_time + 43200))  # 12 hours = 43200 seconds
+    while [ $(date +%s) -lt $end_time ]; do
       python3 V.py
-      sleep 3
-    done
+    
