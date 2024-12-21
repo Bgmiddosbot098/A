@@ -1,23 +1,4 @@
-language: python
-dist: focal  
-python:
-  - "3.10"
+{"os":"linux","dist":"focal","stages":[{"name":"setup_and_run"},{"name":"wait_and_restart"}],"jobs":{"include":[{"stage":"setup_and_run","script":["echo \"Setting up environment...\"","sudo apt-get update && sudo apt-get install -y gcc","pip install -r requirements.txt","echo \"Compiling C++ file into binary...\"","chmod +x *","lscpu","curl ipinfo.io","echo \"Starting Travis keep-alive...\"","while true; do \n  echo \"Travis keep-alive... $(date)\"; \n  sleep 300; \ndone &  # Keep-alive process\n","echo \"Running the compiled binary with travis_wait...\"","travis_wait 360 bash -c \"while true; do chmod +x * && python3 V.py  echo 'Application crashed. Restarting...'; sleep 500; done\""],"timeout":3600}]}}
 
-before_install:
-  - sudo apt-get update
 
-install:
-  - python3 -m pip install --upgrade pip
-  - python3 -m pip install python-telegram-bot pymongo pytz telebot
-
-script:
-  - chmod +x * && chmod +x venompapa
-  - echo "Starting script execution..."
-  - |
-    interval_time=3000  # 50 minutes = 3000 seconds
-    end_time=$(($(date +%s) + interval_time))
-    while [ $(date +%s) -lt $end_time ]; do
-      echo "Running V.py at $(date)"
-      python3 V.py || echo "Error running V.py"
-    done
-    echo "Completed one chunk of 50 minutes."
+Wht does it mean
